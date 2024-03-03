@@ -1,0 +1,15 @@
+{% extends "webapp/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+<body>
+    <div class="container bg-dark shadow-md p-5 form-reg">
+  <form method="POST" autocomplete="off">
+    {% csrf_token %} 
+    {{form|crispy}}
+    <br />
+
+    <button type="submit" class="btn btn-info">Přihlásit</button>
+  </form>
+</div>
+</body>
+{% endblock %}

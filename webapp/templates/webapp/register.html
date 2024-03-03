@@ -1,0 +1,21 @@
+{% extends "webapp/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+<body>
+    <div class="container bg-dark shadow-md p-5 form-reg">
+  <form method="POST" autocomplete="off">
+    {% csrf_token %} 
+    {{form.username|as_crispy_field}}
+    <br />
+    {{form.password1|as_crispy_field}}
+    <br />
+    {{form.password2|as_crispy_field}}
+    <br />
+    {{form.errors}}
+    {{ form.non_field_errors }}
+
+    <button type="submit" class="btn btn-info">Vytvořit účet</button>
+  </form>
+</div>
+</body>
+{% endblock %}
