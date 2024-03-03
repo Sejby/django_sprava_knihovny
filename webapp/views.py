@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import RegistracniFormular,LoginFormular
+from .forms import RegistracniFormular,LoginFormular, PridatKnihuFormular, UpravitKnihuFormular
 
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate 
@@ -46,4 +46,35 @@ def odhlaseni(request):
 
 @login_required(login_url='prihlaseni')
 def dashboard(request):
-    return render(request, 'webapp/dashboard.html')
+    knihy = Kniha.objects.all()
+    context = {'knihy' : knihy}
+    return render(request, 'webapp/dashboard.html', context=context)
+
+@login_required(login_url='prihlaseni')
+def pridat_knihu(request):
+    formular = PridatKnihuFormular()
+    if request.method == "POST":
+        formular = PridatKnihuFormular(request.POST)
+        if formular.is_valid():
+            formular.save()
+            return redirect('dashboard')
+    context = {'form': formular}
+    return render(request, 'webapp/create_record.html', context=context)
+
+@login_required(login_url='prihlaseni')
+def upravit_knihu(request,pk):
+    kniha = Kniha.objects.get(id=pk)
+    formular = UpravitKnihuFormular(instance=kniha)
+    if request.method == "POST":
+        formular = UpravitKnihuFormular(request.POST, instance=kniha)
+        if formular.is_valid():
+            formular.save()
+            return redirect('dashboard')
+    context = {'form': formular}
+    return render(request, 'webapp/update_record.html', context=context)
+
+@login_required(login_url='prihlaseni')
+def smazat_knihu(request, pk):
+    kniha = Kniha.objects.get(id=pk)
+    kniha.delete()
+    return redirect('dashboard')

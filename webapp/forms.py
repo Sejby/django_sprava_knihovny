@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 
+from .models import Kniha
 from django import forms
 from django.forms.widgets import TextInput, PasswordInput
 
@@ -14,4 +15,14 @@ class RegistracniFormular(UserCreationForm):
 class LoginFormular(AuthenticationForm):
     username = forms.CharField(widget=TextInput())
     password = forms.CharField(widget=PasswordInput())
+
+class PridatKnihuFormular(forms.ModelForm):
+    class Meta:
+        model = Kniha
+        fields = ['nazev_knihy', 'autor', 'zanr', 'pocet_stran', 'rok_vydani', 'obrazek']
+
+class UpravitKnihuFormular(forms.ModelForm):
+    class Meta:
+        model = Kniha
+        fields = ['nazev_knihy', 'autor', 'zanr', 'pocet_stran', 'rok_vydani', 'obrazek']
     

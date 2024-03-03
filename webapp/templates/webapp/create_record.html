@@ -1,0 +1,26 @@
+{% extends "webapp/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+<body>
+    <div class="container bg-dark shadow-md p-5 form-reg">
+  <form method="POST" autocomplete="off">
+    {% csrf_token %} 
+    {{form.nazev_knihy|as_crispy_field}}
+    <br />
+    {{form.autor|as_crispy_field}}
+    <br />
+    {{form.zanr|as_crispy_field}}
+    <br />
+    {{form.pocet_stran|as_crispy_field}}
+    <br />
+    {{form.rok_vydani|as_crispy_field}}
+    <br />
+    {{form.obrazek|as_crispy_field}}
+    <br />
+    {{ form.non_field_errors }}
+
+    <button type="submit" class="btn btn-info" {% url "pridat_knihu" %}>Přidat knihu</button>
+  </form>
+</div>
+</body>
+{% endblock %}

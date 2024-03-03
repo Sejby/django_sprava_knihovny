@@ -1,4 +1,37 @@
 {% extends "webapp/base.html" %}
 {% block content %}
-    <h1>Tady je dashboard Budulínku! {{user}}</h1>
+    <h3 class="p-10">Přehled knih v databázi:</h3>
+    <table class="table table-dark my-3 table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID knihy</th>
+            <th scope="col">Název knihy</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Žánr</th>
+            <th scope="col">Počet stran</th>
+            <th scope="col">Rok vydání</th>
+            <th scope="col">Datum přidání</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% if knihy %}
+            {% for kniha in knihy %}
+          <tr>
+            <th scope="row">{{kniha.id}}</th>
+            <td>{{kniha.nazev_knihy}}</td>
+            <td>{{kniha.autor}}</td>
+            <td>{{kniha.zanr}}</td>
+            <td>{{kniha.pocet_stran}}</td>
+            <td>{{kniha.rok_vydani}}</td>
+            <td>{{kniha.datum_vytvoreni }}</td>
+            <td><a class="btn btn-warning btn-sm" type="button" href="{% url 'upravit_knihu' kniha.id %}">Upravit</a></td>
+            <td><a class="btn btn-danger btn-sm" type="button" href="{% url 'smazat_knihu' kniha.id %}">Smazat</a></td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+      <a class="btn btn-primary" type="button" href="{% url "pridat_knihu" %}">Vytvořit záznam</a>
 {% endblock  %}
