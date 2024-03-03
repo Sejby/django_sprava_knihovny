@@ -1,5 +1,22 @@
-.form-reg{
-    width: 500px !important;
-    background-color: #ADB5BD;
-    border-radius: 25px;
+.form-reg {
+  width: 500px !important;
+  background-color: #adb5bd;
+  border-radius: 25px;
+}
+
+.nadpis {
+  font-weight: bold;
+  padding-left: 20px;
+  letter-spacing: 2px;
+  font-size: 25px !important;
+}
+
+#span_nadpisu {
+  color: rgb(255, 200, 98);
+}
+
+.card {
+  display: inline-block !important;
+  width: 200px;
+  height: auto;
 }

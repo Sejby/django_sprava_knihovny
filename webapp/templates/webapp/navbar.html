@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand font-weight-bold" href="{% url 'uvod' %}">Knihovna</a>
+      <a class="navbar-brand nadpis" href="{% url 'uvod' %}">Kniho<span id="span_nadpisu">Sklad</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,12 +10,12 @@
         <form class="d-flex">
             {% if user.is_authenticated %}
             <h5 class="mx-5 my-2 my-sm-0">Uživatel: {{user}}</h5>
-            <a class="btn btn-success my-2 my-sm-0" type="button" href="{% url "dashboard" %}">Dashboard</a>
-            <a class="btn btn-info my-2 my-sm-0 mx-2" type="button" href="{% url "odhlaseni" %}" >Odhlásit</a>
+            <a class="btn btn-primary my-2 my-sm-0" type="button" href="{% url "dashboard" %}">Dashboard <i class="fa-solid fa-gears"></i></a>
+            <a class="btn btn-danger my-2 my-sm-0 mx-2" type="button" href="{% url "odhlaseni" %}" >Odhlásit <i class="fa-solid fa-right-from-bracket"></i></a>
 
             {% else %}
-            <a class="btn btn-success my-2 my-sm-0" type="button" href="{% url "prihlaseni" %}">Přihlásit</a>
-            <a class="btn btn-info my-2 my-sm-0" type="button" href="{% url "registrace" %}">Zaregistrovat</a>
+            <a class="btn btn-success my-2 my-sm-0 mx-2" type="button" href="{% url "prihlaseni" %}">Přihlásit <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            <a class="btn btn-info my-2 my-sm-0" type="button" href="{% url "registrace" %}">Zaregistrovat <i class="fa-solid fa-user"></i></a>
             {% endif %}
         </form>
       </div>

@@ -3,9 +3,24 @@
 {% block content %}
     <body>
         <br>
-        <h3>Soukromá správa knihovny, pro zobrazení se musíte zaregistrovat.</h3>
+        <h3>Knihosklad je webová aplikace pro správu knihovny, pro úpravy záznamů se musíte zaregistrovat.</h3>
         <br>
-        <a class="btn btn-info" type="button" href="{% url 'registrace' %}" >Vytvořit Účet</a>
+        <a class="btn btn-info" type="button" href="{% url 'registrace' %}" >Vytvořit účet</a>
+        <br/>
+
+        {% for kniha in knihy %}
+        <div class="card mb-3 my-3">
+            <h4 class="card-header">{{kniha.nazev_knihy}}</h4>
+            <img src="{{kniha.obrazek}}" class="d-block user-select-none" width="100%" height="auto" focusable="false">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{kniha.zanr}}</li>
+              <li class="list-group-item">{{kniha.autor}}</li>
+              <li class="list-group-item">{{kniha.rok_vydani}}</li>
+              <li class="list-group-item">{{kniha.pocet_stran}}</li>
+            </ul>
+          </div>
+        {% endfor %}
+
     </body>
 {% endblock %}
 

@@ -50,6 +50,11 @@ def dashboard(request):
     context = {'knihy' : knihy}
     return render(request, 'webapp/dashboard.html', context=context)
 
+def uvod(request):
+    knihy = Kniha.objects.all()
+    context = {'knihy': knihy}
+    return render(request, 'webapp/index.html', context=context)
+
 @login_required(login_url='prihlaseni')
 def pridat_knihu(request):
     formular = PridatKnihuFormular()

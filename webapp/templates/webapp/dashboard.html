@@ -25,7 +25,7 @@
             <td>{{kniha.zanr}}</td>
             <td>{{kniha.pocet_stran}}</td>
             <td>{{kniha.rok_vydani}}</td>
-            <td>{{kniha.datum_vytvoreni }}</td>
+            <td>{{kniha.datum_vytvoreni|date:"d/m/Y H:m" }}</td>
             <td><a class="btn btn-warning btn-sm" type="button" href="{% url 'upravit_knihu' kniha.id %}">Upravit</a></td>
             <td><a class="btn btn-danger btn-sm" type="button" href="{% url 'smazat_knihu' kniha.id %}">Smazat</a></td>
           </tr>
