@@ -13,8 +13,8 @@ class RegistracniFormular(UserCreationForm):
 
 
 class LoginFormular(AuthenticationForm):
-    username = forms.CharField(widget=TextInput())
-    password = forms.CharField(widget=PasswordInput())
+    username = forms.CharField(widget=TextInput(), label="Přihlašovací jméno:")
+    password = forms.CharField(widget=PasswordInput(), label="Heslo:")
 
 class PridatKnihuFormular(forms.ModelForm):
     class Meta:

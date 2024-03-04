@@ -13,10 +13,10 @@
             <h4 class="card-header">{{kniha.nazev_knihy}}</h4>
             <img src="{{kniha.obrazek}}" class="d-block user-select-none" width="100%" height="auto" focusable="false">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{kniha.zanr}}</li>
-              <li class="list-group-item">{{kniha.autor}}</li>
-              <li class="list-group-item">{{kniha.rok_vydani}}</li>
-              <li class="list-group-item">{{kniha.pocet_stran}}</li>
+              <li class="list-group-item">Žánr: {{kniha.zanr}}</li>
+              <li class="list-group-item">Autor: {{kniha.autor}}</li>
+              <li class="list-group-item">Rok vydání: {{kniha.rok_vydani}}</li>
+              <li class="list-group-item">Počet stran: {{kniha.pocet_stran}}</li>
             </ul>
           </div>
         {% endfor %}
