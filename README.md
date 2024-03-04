@@ -13,3 +13,4 @@
 - Django HTML
 - Bootstrap
 - CSS
+- scrapy knihovna pro extrahování dat (web-scraping)
